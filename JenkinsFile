@@ -30,7 +30,7 @@ node('master') {
        // sh "./gradlew clean sonarqube"
       build job: 'Upstream-Sonar', parameters: [string(name: 'Environment', value: 'Dev')]
    }
-   stage('UploadArtifactsandDeploytoDevEnv.') {
+   stage('UploadArtifactsandDeploytoDEVEnv.') {
       // Invoking the artifact upload job followed by the deployment
       build job: 'Upstream-Dev-WebApp', parameters: [string(name: 'Environment', value: 'Dev')]
    }
