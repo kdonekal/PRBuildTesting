@@ -31,7 +31,7 @@ node('master') {
       build job: 'Upstream-Sonar', parameters: [string(name: 'Environment', value: 'Dev')]
    }
    stage('UploadArtifactsandDeploytoDEVEnv.') {
-      // Invoking the artifact upload job followed by the deployment to Dev environment followed by deployment
+      // Invoking the artifact upload job followed by the deployment to Dev environment
       build job: 'Upstream-Dev-WebApp', parameters: [string(name: 'Environment', value: 'Dev')]
    }
    stage('UploadandDownloadArtifactstoQAEnv.') {
