@@ -35,7 +35,7 @@ node('master') {
       build job: 'Upstream-Dev-WebApp', parameters: [string(name: 'Environment', value: 'Dev')]
    }
    stage('UploadandDownloadArtifactstoQAEnv.') {
-      // Invoking the artifact upload followed by the download for QA environment followed by the deployment
+      // Invoking the artifact upload, followed by downloading for QA environment followed by the QA deploy
       build job: 'Upstream-QA-WebApp', parameters: [string(name: 'Source-Environment', value: 'Dev'), string(name: 'Environment', value: 'QA')]
    }
    stage('JMeterScriptsExecution') {
