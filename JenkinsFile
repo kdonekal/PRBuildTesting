@@ -31,11 +31,11 @@ node('master') {
       build job: 'Upstream-Sonar', parameters: [string(name: 'Environment', value: 'Dev')]
    }
    stage('UploadArtifactsandDeploytoDEVEnv.') {
-      // Invoking the artifact upload, followed by deployment to Dev environment
+      // Invoking the artifact upload, followed by deployment to Dev 
       build job: 'Upstream-Dev-WebApp', parameters: [string(name: 'Environment', value: 'Dev')]
    }
    stage('UploadandDownloadArtifactstoQAEnv.') {
-      // Invoking the artifact upload, followed by downloading for QA environment followed by the deploying to QA environment
+      // Invoking the artifact upload, followed by downloading for QA environment followed by the deploying to QA 
       build job: 'Upstream-QA-WebApp', parameters: [string(name: 'Source-Environment', value: 'Dev'), string(name: 'Environment', value: 'QA')]
    }
    stage('JMeterScriptsExecution') {
