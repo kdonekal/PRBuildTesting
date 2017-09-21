@@ -26,10 +26,6 @@ node('master') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
-   stage('SonarQube Analysis') {
-       // sh "./gradlew clean sonarqube"
-      build job: 'Upstream-Sonar', parameters: [string(name: 'Environment', value: 'Dev')]
-   }
    stage('UploadArtifactsandDeploytoDEVEnv.') {
       // Invoking the artifact upload, followed by deployment to Dev 
       build job: 'Upstream-Dev-WebApp', parameters: [string(name: 'Environment', value: 'Dev')]
